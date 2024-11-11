@@ -3,7 +3,8 @@ package com.quest.practice_vars;
 import java.util.Scanner;
 
 public class SttudentGradeSystem {
-    public static final int MAX_SCORE=100;
+    public static final int MAX_SCORE = 100;
+
     public static void main(String[] args) {
         class Student {
             String name;
@@ -14,31 +15,36 @@ public class SttudentGradeSystem {
             String feedback;
         }
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the Number of Students: ");
-        int number = sc.nextInt();
+        int number;
+        while (true) {
+            System.out.println("Enter the Number of Students: ");
+            if (sc.hasNextInt()) {
+                number = sc.nextInt();
+                if (number > 0) {
+                    break;
+                } else {
+                    System.out.println("Invalid input! Number of students must be greater than 0.");
+                }
+            } else {
+                System.out.println("Invalid input! Please enter a valid integer.");
+                sc.next(); // Consume invalid input
+            }
+        }
 
         for (int i = 0; i < number; i++) {
             Student s = new Student();
-            System.out.printf("Enter the Name of Student " + (i + 1) + ": ");
-            s.name = sc.next();
-            System.out.printf("Enter score for Math (0-100) " + (i + 1) + ": ");
-            s.math = sc.nextInt();
-            if (!isValidScores(s.math)){
-                System.out.println("Invalid Score, enter again");
-                s.math = sc.nextInt();
+            while (true) {
+                System.out.printf("Enter the Name of Student " + (i + 1) + ": ");
+                s.name = sc.next().trim();
+                if (!s.name.isEmpty()) {
+                    break;
+                } else {
+                    System.out.println("Invalid input! Name cannot be empty.");
+                }
             }
-            System.out.printf("Enter score for English (0-100) " + (i + 1) + ": ");
-            s.english = sc.nextInt();
-            if (!isValidScores(s.english)){
-                System.out.println("Invalid Score, enter again");
-                s.english = sc.nextInt();
-            }
-            System.out.printf("Enter score for Science (0-100) " + (i + 1) + ": ");
-            s.science = sc.nextInt();
-            if (!isValidScores(s.science)){
-                System.out.println("Invalid Score, enter again");
-                s.science = sc.nextInt();
-            }
+            s.math = getValidScore(sc, "Math");
+            s.english = getValidScore(sc, "English");
+            s.science = getValidScore(sc, "Science");
             int totalScore = s.math + s.english + s.science;
             double averageScore = (double) totalScore / 3;
             if (averageScore >= 90) {
@@ -70,7 +76,26 @@ public class SttudentGradeSystem {
         System.out.println("Summary: " + number + " students processed.");
     }
 
-    public static boolean isValidScores(int score){
+    public static boolean isValidScores(int score) {
         return (score >= 0 && score <= MAX_SCORE);
+    }
+
+    public static int getValidScore(Scanner sc, String subject) {
+        int score = 0;
+        while (true) {
+            System.out.printf("Enter score for " + subject + " (0-100): ");
+            if (sc.hasNextInt()) {
+                score = sc.nextInt();
+                if (isValidScores(score)) {
+                    break;
+                } else {
+                    System.out.println("Invalid score! Please enter a score between 0 and 100.");
+                }
+            } else {
+                System.out.println("Invalid input! Please enter a valid number for " + subject + " score.");
+                sc.next(); // Consume the invalid input
+            }
+        }
+        return score;
     }
 }
