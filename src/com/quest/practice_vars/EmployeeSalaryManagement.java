@@ -18,10 +18,8 @@ public class EmployeeSalaryManagement {
         int numberOfEmployees;
         while (true) {
             System.out.print("Enter the number of employees: ");
-
             if (sc.hasNextInt()) {
                 numberOfEmployees = sc.nextInt();
-
                 if (numberOfEmployees > 0) {
                     break;
                 } else {
@@ -32,7 +30,6 @@ public class EmployeeSalaryManagement {
                 sc.next();
             }
         }
-        //int numberOfEmployees = sc.nextInt();
         double totalAverageSalary = 0;
         Employee[] employees = new Employee[numberOfEmployees];
 
@@ -49,16 +46,8 @@ public class EmployeeSalaryManagement {
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < numberOfEmployees; i++) {
             employees[i] = new Employee();
-            while (true) {
-                System.out.print("Enter the name of employee " + (i + 1) + ": ");
-                employees[i].name = sc.nextLine();
-                if (!employees[i].name.isEmpty()) {
-                    break;
-                } else {
-                    System.out.println("Invalid input! Name cannot be empty.");
-                }
-            }
-
+            //method to get names
+            getName(employees, i, sc);
             while (true) {
                 System.out.print("Enter the base salary of " + employees[i].name + ": ");
                 if (sc.hasNextDouble()) {
@@ -97,6 +86,18 @@ public class EmployeeSalaryManagement {
             employees[i].bonus = employees[i].totalSalary - (employees[i].baseSalary * employees[i].monthlySalaries.length);
         }
         return totalAverageSalary;
+    }
+
+    private static void getName(Employee[] employees, int i, Scanner sc) {
+        while (true) {
+            System.out.print("Enter the name of employee " + (i + 1) + ": ");
+            employees[i].name = sc.nextLine();
+            if (!employees[i].name.isEmpty()) {
+                break;
+            } else {
+                System.out.println("Invalid input! Name cannot be empty.");
+            }
+        }
     }
 
     // Method to print employee salary details
