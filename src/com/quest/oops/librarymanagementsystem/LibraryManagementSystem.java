@@ -17,7 +17,6 @@ public class LibraryManagementSystem {
 
         library.borrowBook("F123", member1);
 
-        System.out.println("\nBook borrowed F123");
 
         System.out.println();
         System.out.println("--- Available Books after borrowing ---");

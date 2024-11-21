@@ -31,6 +31,23 @@ public class Book {
         return publicationYear;
     }
 
+    public void setAvailabilityStatus(boolean availabilityStatus) {
+        this.availabilityStatus = availabilityStatus;
+    }
+
+    public boolean isAvailabilityStatus() {
+        return availabilityStatus;
+    }
+
+    public void displayBookInfo() {
+        System.out.println("\n--- Available Books ---");
+        System.out.println("ISBN: " + ISBN);
+        System.out.println("Title: " + title);
+        System.out.println("Author: " + author);
+        System.out.println("Publication Year: " + publicationYear);
+        System.out.println("Availability Status: " + availabilityStatus);
+    }
+
     public boolean getAvailabilityStatus() {
         return availabilityStatus;
     }
@@ -49,26 +66,5 @@ public class Book {
 
     public void setPublicationYear(String publicationYear) {
         this.publicationYear = publicationYear;
-    }
-
-    public void setAvailabilityStatus(boolean availabilityStatus) {
-        this.availabilityStatus = availabilityStatus;
-    }
-
-    public boolean isAvailabilityStatus() {
-        if (availabilityStatus) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public void displayBookInfo() {
-        System.out.println("\n--- Available Books ---");
-        System.out.println("ISBN: " + ISBN);
-        System.out.println("Title: " + title);
-        System.out.println("Author: " + author);
-        System.out.println("Publication Year: " + publicationYear);
-        System.out.println("Availability Status: " + availabilityStatus);
     }
 }

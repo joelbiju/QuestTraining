@@ -12,31 +12,19 @@ public class LibraryMember {
         this.contactInfo = contactInfo;
         this.borrowedBooks = borrowedBooks;
     }
+
     public String getMemberID() {
         return memberID;
     }
+
     public String getName() {
         return Name;
     }
-    public String getContactInfo() {
-        return contactInfo;
-    }
-    public String[] getBorrowedBooks() {
-        return borrowedBooks;
-    }
 
-    public void setMemberID(String memberID) {
-        this.memberID = memberID;
-    }
     public void setName(String name) {
         Name = name;
     }
-    public void setContactInfo(String contactInfo) {
-        this.contactInfo = contactInfo;
-    }
-    public void setBorrowedBooks(String[] borrowedBooks) {
-        this.borrowedBooks = borrowedBooks;
-    }
+
 
     public void borrowBook(String ISBN) {
         boolean added = false;
@@ -51,15 +39,32 @@ public class LibraryMember {
             System.out.println("Cannot borrow books. Max limit reached.");
         }
     }
+
     public void returnBook(String ISBN) {
         for (int i = 0; i < borrowedBooks.length; i++) {
-            if (borrowedBooks[i] !=null && borrowedBooks[i].equals(ISBN)) {
+            if (borrowedBooks[i] != null && borrowedBooks[i].equals(ISBN)) {
                 borrowedBooks[i] = null;
                 break;
             } else {
                 System.out.println("Book with ISBN " + ISBN + " not found in borrowed list.");
             }
         }
+    }
+
+    public void setContactInfo(String contactInfo) {
+        this.contactInfo = contactInfo;
+    }
+
+    public void setBorrowedBooks(String[] borrowedBooks) {
+        this.borrowedBooks = borrowedBooks;
+    }
+
+    public String[] getBorrowedBooks() {
+        return borrowedBooks;
+    }
+
+    public void setMemberID(String memberID) {
+        this.memberID = memberID;
     }
 
 }

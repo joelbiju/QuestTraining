@@ -35,13 +35,13 @@ public class Library implements LibraryOperations {
     }
 
     @Override
-    public Book searchBook(String keyword) {
+    public boolean searchBook(String keyword) {
         for (Book book : books) {
-            if (book.getISBN().equals(keyword)) {
-                return book;
+            if (book.getISBN().equals(keyword) && book.isAvailabilityStatus()) {
+                return true;
             }
         }
-        return null;
+        return false;
     }
 
     @Override
@@ -54,7 +54,7 @@ public class Library implements LibraryOperations {
     @Override
     public void borrowBook(String ISBN, LibraryMember member) {
         for (Book book : books) {
-            if (book.isAvailabilityStatus() && book.getISBN().equals(ISBN)) {
+            if (book.getAvailabilityStatus() && book.getISBN().equals(ISBN)) {
                 book.setAvailabilityStatus(false);
                 member.borrowBook(ISBN);
                 return;
