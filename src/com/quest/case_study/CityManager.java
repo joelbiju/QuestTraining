@@ -146,7 +146,7 @@ public class CityManager extends WeatherOperations {
         }
         System.out.println("\nAlerts");
         System.out.println("Cities with Heatwave Alert: ");
-        if (heatCount == 1) {
+        if (heatCount == 0) {
             System.out.println(" - ");
         } else {
             for (int i = 0; i < heatCount; i++) {
