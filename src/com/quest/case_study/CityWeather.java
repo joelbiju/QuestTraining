@@ -28,6 +28,7 @@ public class CityWeather {
     public double getHumidity() {
         return humidity;
     }
+
     public void setHumidity(double humidity) {
         this.humidity = humidity;
     }
@@ -35,12 +36,13 @@ public class CityWeather {
     public String getCondition() {
         return condition;
     }
+
     public void setCondition(String condition) {
         this.condition = condition;
     }
 
     @Override
     public String toString() {
-        return "City: "+cityName+", Temperature: "+temperature+"°C, Humidity: "+humidity+"%, Condition: "+condition;
+        return "City: " + cityName + ", Temperature: " + temperature + "°C, Humidity: " + humidity + "%, Condition: " + condition;
     }
 }

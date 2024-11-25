@@ -8,7 +8,7 @@ public class WeatherMonitoringSystem {
         CityManager cm1 = new CityManager();
 
         System.out.println("\n--- Welcome to the Weather Monitoring System ---");
-        while (true){
+        while (true) {
             System.out.println("\n1. Add a new City");
             System.out.println("2. View all Cities");
             System.out.println("3. Generate Reports");
