@@ -1,4 +1,4 @@
-package com.quest.case_study;
+package com.quest.case_study.weather_monitoring;
 
 public class CityWeather {
     private String cityName;
