@@ -7,7 +7,7 @@ public class MainManagement {
         TelecomMethods telecom = new TelecomMethods();
         Scanner scanner = new Scanner(System.in);
 
-        while (true){
+        while (true) {
             System.out.println("\nTelecom Management System");
             System.out.println("1. Add Subscriber");
             System.out.println("2. Update Subscriber Balance");
@@ -21,7 +21,7 @@ public class MainManagement {
             int choice = scanner.nextInt();
             scanner.nextLine();
 
-            switch(choice){
+            switch (choice) {
                 case 1: {
                     telecom.addSubscriber(scanner);
                     break;
