@@ -1,3 +1,5 @@
+
+//Given a sentence, count the frequency of each word using a Map<String, Integer> and display the result.
 package com.quest.collections.exercise;
 import java.util.HashMap;
 import java.util.Map;

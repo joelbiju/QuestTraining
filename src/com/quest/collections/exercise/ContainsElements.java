@@ -1,3 +1,5 @@
+
+//Check if a Set<Integer> contains all the elements of another Set<Integer>.
 package com.quest.collections.exercise;
 
 import java.util.HashSet;
@@ -18,12 +20,14 @@ public class ContainsElements {
         String[] strArr = str1.split(" ");
         String[] strArr2 = str2.split(" ");
 
-        for (int i = 0; i < strArr.length; i++) {
-            set1.add(Integer.parseInt(strArr[i]));
+        for (String s : strArr) {
+            set1.add(Integer.parseInt(s));
         }
-        for (int i = 0; i < strArr2.length; i++) {
-            set2.add(Integer.parseInt(strArr2[i]));
+        for (String s : strArr2) {
+            set2.add(Integer.parseInt(s));
         }
+
+
 
         if (set1.containsAll(set2)) {
             System.out.println("Set 1 contains " + set2);

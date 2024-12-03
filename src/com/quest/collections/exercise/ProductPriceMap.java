@@ -1,3 +1,6 @@
+//Implement a Map where the key is a product name, and the value is its price.
+// Add products, update prices, and display the product with the highest price.
+
 package com.quest.collections.exercise;
 
 import java.util.HashMap;

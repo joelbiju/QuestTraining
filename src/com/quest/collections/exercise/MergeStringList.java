@@ -1,3 +1,6 @@
+
+//Merge two List<String> objects and remove duplicates from the merged list.
+
 package com.quest.collections.exercise;
 
 import java.util.ArrayList;

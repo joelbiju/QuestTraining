@@ -1,3 +1,6 @@
+//Create a Map where keys are employee IDs, and values are their names.
+// Implement search functionality to fetch a name by entering the employee ID.
+
 package com.quest.collections.exercise;
 
 import java.util.HashMap;
@@ -9,11 +12,11 @@ public class EmployeeSearch {
         Scanner sc = new Scanner(System.in);
         Map<Integer, String> employeeMap = new HashMap<>();
 
-        employeeMap.put(101, "Alice");
-        employeeMap.put(102, "Bob");
-        employeeMap.put(103, "Charlie");
-        employeeMap.put(104, "David");
-        employeeMap.put(105, "Eva");
+        employeeMap.put(111, "Alice");
+        employeeMap.put(112, "Bob");
+        employeeMap.put(113, "Charlie");
+        employeeMap.put(114, "David");
+        employeeMap.put(115, "Eva");
 
         System.out.println("Employee Data: " + employeeMap);
 

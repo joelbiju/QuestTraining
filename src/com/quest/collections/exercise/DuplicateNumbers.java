@@ -1,3 +1,5 @@
+
+//Create a program that identifies the first duplicate number in a sequence of integers using a Set.
 package com.quest.collections.exercise;
 
 import java.util.HashSet;

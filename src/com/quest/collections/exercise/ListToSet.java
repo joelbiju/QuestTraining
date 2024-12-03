@@ -1,5 +1,6 @@
-package com.quest.collections.exercise;
 
+//Given a List<String> with duplicate elements, convert it to a Set to remove duplicates and print the result.
+package com.quest.collections.exercise;
 import java.util.*;
 
 public class ListToSet {

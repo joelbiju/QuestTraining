@@ -1,3 +1,6 @@
+
+//Count the occurrence of each element in a List of integers and print the result.
+
 package com.quest.collections.exercise;
 
 import java.util.ArrayList;

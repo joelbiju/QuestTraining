@@ -1,5 +1,7 @@
-package com.quest.collections.exercise;
 
+//Remove all elements from a Set that are divisible by 3.
+
+package com.quest.collections.exercise;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;

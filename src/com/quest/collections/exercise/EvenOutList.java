@@ -1,3 +1,6 @@
+
+//Given a List of integers, remove all even numbers and print the updated list.
+
 package com.quest.collections.exercise;
 
 import java.util.ArrayList;
