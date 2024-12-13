@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Vehicle implements Cloneable, Serializable {
+public class Vehicle implements Cloneable {
     private String vehicleId;
     private String brand;
     private String model;

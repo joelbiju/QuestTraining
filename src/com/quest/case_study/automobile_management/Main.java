@@ -53,8 +53,7 @@ public class Main {
                     break;
                 }
                 case 7: {
-                    cm.serializeData();
-                    System.out.println("Exiting and storing data...");
+                    System.out.println("Exiting...");
                     return;
                 }
                 default: {

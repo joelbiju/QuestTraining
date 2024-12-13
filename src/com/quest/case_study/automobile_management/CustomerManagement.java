@@ -7,11 +7,9 @@ import java.util.*;
 public class CustomerManagement implements Serializable {
     List<Customer> customers = new ArrayList<>();
     Map<Customer, Set<Vehicle>> customerVehiclesMap = new HashMap<>();
-    private String fileName = "saleData.ser";
 
     public CustomerManagement() {
         this.customerVehiclesMap = new HashMap<>();
-        deserializeData();
     }
 
     void addNewCustomer(Customer newCustomer) {
@@ -68,49 +66,4 @@ public class CustomerManagement implements Serializable {
             System.out.println(e.getMessage());
         }
     }
-
-
-    public void serializeData() {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
-            oos.writeObject(customerVehiclesMap);
-            System.out.println("Sales data has been serialized and saved to " + fileName);
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error while serializing sales data: " + e.getMessage());
-        }
-    }
-
-    public void deserializeData() {
-        Map<Customer, Set<Vehicle>> deserializedData = loadData();
-        if (!deserializedData.isEmpty()) {
-            this.customerVehiclesMap = deserializedData;
-            System.out.println("\nDeserialized Sales Data From File:");
-            deserializedData.forEach((customer, vehicles) -> {
-                System.out.println("Customer: " + customer);
-                vehicles.forEach(vehicle -> System.out.println("Vehicle: " + vehicle));
-            });
-        } else {
-            System.out.println("No data to display.");
-        }
-    }
-
-
-    private Map<Customer, Set<Vehicle>> loadData() {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
-            Object deserializedObject = ois.readObject();
-            if (deserializedObject instanceof Map<?, ?>) {
-                Map<Customer, Set<Vehicle>> deserializedData = (Map<Customer, Set<Vehicle>>) deserializedObject;
-                System.out.println("Sales data loaded from " + fileName);
-                return deserializedData;
-            } else {
-                System.out.println("Data in file is not of the expected type.");
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("No existing data found. Starting fresh.");
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Error while loading sales data: " + e.getMessage());
-        }
-        return new HashMap<>();
-    }
-
 }

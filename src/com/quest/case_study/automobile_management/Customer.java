@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Customer implements Serializable {
+public class Customer {
     private String customerId;
     private String customerName;
     private String customerEmail;
