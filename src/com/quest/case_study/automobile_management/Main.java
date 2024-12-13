@@ -1,6 +1,5 @@
 package com.quest.case_study.automobile_management;
 
-import javax.sound.midi.Soundbank;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -44,6 +43,8 @@ public class Main {
                     Customer c = cm.customerExist(customerId);
                     if (c != null) {
                         cm.listCustomerPurchases(c);
+                    } else {
+                        System.out.println("Customer not found");
                     }
                     break;
                 }

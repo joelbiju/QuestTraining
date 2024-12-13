@@ -1,5 +1,7 @@
-This is file1 sentence 1.
-This is file1 sentence 2.
-This is file1 sentence 3.
-This is file1 sentence 4.
-This is file1 sentence 5.
+apple
+orange
+grape
+apple
+mango
+raspberries
+raspberries

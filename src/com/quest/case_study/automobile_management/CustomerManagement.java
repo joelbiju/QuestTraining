@@ -10,7 +10,8 @@ public class CustomerManagement implements Serializable {
     private String fileName = "saleData.ser";
 
     public CustomerManagement() {
-        this.customerVehiclesMap = loadData();
+        this.customerVehiclesMap = new HashMap<>();
+        deserializeData();
     }
 
     void addNewCustomer(Customer newCustomer) {
@@ -79,23 +80,31 @@ public class CustomerManagement implements Serializable {
         }
     }
 
-    public void deserializeData(String fileName) {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
-            Map<Customer, Set<Vehicle>> deserializedData = (Map<Customer, Set<Vehicle>>) ois.readObject();
-            System.out.println("Deserialized Sales Data:");
+    public void deserializeData() {
+        Map<Customer, Set<Vehicle>> deserializedData = loadData();
+        if (!deserializedData.isEmpty()) {
+            this.customerVehiclesMap = deserializedData;
+            System.out.println("\nDeserialized Sales Data From File:");
             deserializedData.forEach((customer, vehicles) -> {
                 System.out.println("Customer: " + customer);
-                vehicles.forEach(vehicle -> System.out.println("  Vehicle: " + vehicle));
+                vehicles.forEach(vehicle -> System.out.println("Vehicle: " + vehicle));
             });
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Error while deserializing sales data: " + e.getMessage());
+        } else {
+            System.out.println("No data to display.");
         }
     }
 
-    private Map<Customer, Set<Vehicle>> loadData(){
-        try (ObjectInputStream ois= new ObjectInputStream(new FileInputStream(fileName))){
-            System.out.println("Sales data loaded from "+fileName);
-            return (Map<Customer, Set<Vehicle>>) ois.readObject();
+
+    private Map<Customer, Set<Vehicle>> loadData() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
+            Object deserializedObject = ois.readObject();
+            if (deserializedObject instanceof Map<?, ?>) {
+                Map<Customer, Set<Vehicle>> deserializedData = (Map<Customer, Set<Vehicle>>) deserializedObject;
+                System.out.println("Sales data loaded from " + fileName);
+                return deserializedData;
+            } else {
+                System.out.println("Data in file is not of the expected type.");
+            }
         } catch (FileNotFoundException e) {
             System.out.println("No existing data found. Starting fresh.");
         } catch (IOException | ClassNotFoundException e) {
